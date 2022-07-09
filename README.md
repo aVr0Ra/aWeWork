@@ -1,4 +1,4 @@
-# hello World! THis is my 1st GitHub repository!
+hello World! This is my 1st GitHub repository!
 
 # 定制的企业微信消息推送系统 by aVr0Ra
 
