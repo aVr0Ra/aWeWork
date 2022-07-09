@@ -80,7 +80,7 @@ for ($i = 1 ; ; $i ++) {
 	}
 	
 	if ($arrayNumber2Userid[$number] == null) {
-		echo "[Warning] At cell A" . $i . ", the program didn't find any student with that student ID number. The message of this student didn't send correctly. <br />"; 
+		echo "<br /> <br />[Warning] At cell A" . $i . ", the program didn't find any student with that student ID number. The message of this student didn't send correctly. <br /> <br />"; 
 		continue;
 	}
 	

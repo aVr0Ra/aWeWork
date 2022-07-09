@@ -32,7 +32,7 @@ class myMessage {
 	    		$invalidPartyIdList = null;
 	    		$invalidTagIdList = null;
 	    		$api->MessageSend($message, $invalidUserIdList, $invalidPartyIdList, $invalidTagIdList);
-			echo "Congratulations! Message Sent Successfully!" . "<br />";
+			//echo "Congratulations! Message Sent Successfully!" . "<br />";
 		}
 		return ;
 	}
