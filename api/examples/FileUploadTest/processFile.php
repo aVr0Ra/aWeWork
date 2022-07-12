@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 
 
@@ -18,7 +21,7 @@ $arrayNumber2Userid = array ();
 
 for ($i = 0 ; $i < $sz ; $i ++) {
 	$attrsSZ = count($list[$i]->extattr->attrs);
-	for ($j = 0 ; $j <= attrsSZ ; $j ++) {
+	for ($j = 0 ; $j <= $attrsSZ ; $j ++) {
 		if ($list[$i]->extattr->attrs[$j]->name == "学号") {
 			$arrayNumber2Userid[$list[$i]->extattr->attrs[$j]->value] = $list[$i]->userid;
 			break;
