@@ -25,23 +25,23 @@
 
 # 报错
 以下的两种情况将会报错
-## 1. 所有excel表格A列中的人任意一个同学的学号为空或者未搜索到这个学号的同学（学号错误），程序将报错并指示出表格中所有没有找到对应成员的学号具体位置并报错。
-## 2. 第一位同学发送的消息为空
+1. 所有excel表格A列中的人任意一个同学的学号为空或者未搜索到这个学号的同学（学号错误），程序将报错并指示出表格中所有没有找到对应成员的学号具体位置并报错。
+2. 第一位同学发送的消息为空
 
 # Instuction
 
-## 1. Please fill in your corp_id, app_id and app secret into config.php. 
+1. Please fill in your corp_id, app_id and app secret into config.php. 
 [At the same time] Please give write and read administration to folder upload. For instance, sudo chmod -R 777 upload
-## 2. Open page localhost/wework/api/ExcelMessageSending/fileUpload.php where you can upload your Excel chart. .xls, .xlsx and .csv are the supported extension format.
-## 3. Excel chart uploaded by user will be stored in the upload/ folder, which you can read/write them at any time.
-## 4. The department id of students can be changed in processFile.php
-## 5. Student ID number are returned in the variable "extattr", and the name can be changed in processFile.php
+2. Open page localhost/wework/api/ExcelMessageSending/fileUpload.php where you can upload your Excel chart. .xls, .xlsx and .csv are the supported extension format.
+3. Excel chart uploaded by user will be stored in the upload/ folder, which you can read/write them at any time.
+4. The department id of students can be changed in processFile.php
+5. Student ID number are returned in the variable "extattr", and the name can be changed in processFile.php
 
 #The requirements of the Excel chart
-## 1. The program will only read data from columns A and B. Data from column A are students' ID numbers and column B are the messages supposed to be sent.
-## 2. Rules are as follows:
-### 1) If cell Bx is not NULL, then student ID Ax will receive a message Bx.
-### 2) If cell Bx is NULL, the format will be like this tiny chart:
+1. The program will only read data from columns A and B. Data from column A are students' ID numbers and column B are the messages supposed to be sent.
+2. Rules are as follows:
+1) If cell Bx is not NULL, then student ID Ax will receive a message Bx.
+2) If cell Bx is NULL, the format will be like this tiny chart:
 
 |----A----|-----B-----| <br />
 |---ID1---|message1| <br />
@@ -57,8 +57,8 @@ student ID5 will receive message3. <br />
 
 # Warnings
 In these 2 conditions, the program will echo warnings.
-## 1. There is at least one student ID in column A is invalid or null. The program will echo a warning and show the locations of all the invalid student IDs.
-## 2. The message in cell B1 is NULL
+1. There is at least one student ID in column A is invalid or null. The program will echo a warning and show the locations of all the invalid student IDs.
+2. The message in cell B1 is NULL
 
 
 By aVr0Ra, all right reserved. <br />
