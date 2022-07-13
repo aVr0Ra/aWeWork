@@ -20,7 +20,7 @@ $config = require('config.php');
 $agentId = $config['APP_ID'];
 $api = new CorpAPI($config['CORP_ID'], $config['APP_SECRET']);
 
-$list = $api->UserList(3, 0);
+$list = $api->UserList(3, 0); // you can change the departmen_id here, which is the 1st variable.
 $sz = count($list);
 
 $arrayNumber2Userid = array ();
@@ -28,7 +28,7 @@ $arrayNumber2Userid = array ();
 for ($i = 0 ; $i < $sz ; $i ++) {
 	$attrsSZ = count($list[$i]->extattr->attrs);
 	for ($j = 0 ; $j <= $attrsSZ ; $j ++) {
-		if ($list[$i]->extattr->attrs[$j]->name == "学号") {
+		if ($list[$i]->extattr->attrs[$j]->name == "学号") {  //you can change the extaatr var name here
 			$arrayNumber2Userid[$list[$i]->extattr->attrs[$j]->value] = $list[$i]->userid;
 			break;
 		}
