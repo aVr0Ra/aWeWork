@@ -9,8 +9,8 @@
 # Excel表格要求格式
 1. Excel表格只接受A、B两列数据。其中，A列为学号数据，B列为需要给同一行A列数据学号的人进行发送的消息
 2. 发送消息的规则如下： <br />
-i. 如果一一对应，即每一个人后面都有一条消息，则程序将一一发送各自的消息
-ii. 如果没有一一对应，也接受多人发同一条消息，格式如下：
+i. 如果一一对应，即每一个人后面都有一条消息，则程序将一一发送各自的消息 <br />
+ii. 如果没有一一对应，也接受多人发同一条消息，格式如下： <br />
 
 |----A----|-----B-----| <br />
 |---ID1---|message1| <br />
@@ -38,9 +38,9 @@ ii. 如果没有一一对应，也接受多人发同一条消息，格式如下�
 
 # The requirements of the Excel chart
 1. The program will only read data from columns A and B. Data from column A are students' ID numbers and column B are the messages supposed to be sent.
-2. Rules are as follows:
-1) If cell Bx is not NULL, then student ID Ax will receive a message Bx.
-2) If cell Bx is NULL, the format will be like this tiny chart:
+2. Rules are as follows: <br />
+i. If cell Bx is not NULL, then student ID Ax will receive a message Bx. <br />
+ii. If cell Bx is NULL, the format will be like this tiny chart: <br />
 
 |----A----|-----B-----| <br />
 |---ID1---|message1| <br />
