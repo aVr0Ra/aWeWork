@@ -1,7 +1,6 @@
 # 操作方法
 
-1. 请先将企业信息corp_id、应用ID和secret填入到config.php中
-特殊说明，请给upload文件夹读写权限。如sudo chmod -R 777 upload
+1. 请先将企业信息corp_id、应用ID和secret填入到config.php中。同时，请给upload文件夹读写权限。如sudo chmod -R 777 upload
 2. 打开localhost/wework/api/ExcelMessageSending/fileUpload.php，即可打开网页上传本地的excel表格。支持.csv .xls .xlsx三种格式的excel表格
 3. 上传的文件存储于upload文件夹中，可以随时查看、修改
 4. 查询成员的部门可以进行修改，详情请查看processFile.php进行修改
