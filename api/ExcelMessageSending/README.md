@@ -13,11 +13,11 @@
   1) 如果一一对应，即每一个人后面都有一条消息，则程序将一一发送各自的消息
   2) 如果没有一一对应，也接受多人发同一条消息，格式如下：
 
-|----A----|----B---| <br />
+|----A----|----B-----| <br />
 |---ID1---|message1| <br />
 |---ID2---|message2| <br />
-|---ID3---|--------| <br />
-|---ID4---|--------| <br />
+|---ID3---|----------| <br />
+|---ID4---|----------| <br />
 |---ID5---|message3| <br />
 
 
@@ -43,11 +43,11 @@
 ### 1) If cell Bx is not NULL, then student ID Ax will receive a message Bx.
 ### 2) If cell Bx is NULL, the format will be like this tiny chart:
 
-|----A----|----B---| <br />
+|----A----|----B-----| <br />
 |---ID1---|message1| <br />
 |---ID2---|message2| <br />
-|---ID3---|--------| <br />
-|---ID4---|--------| <br />
+|---ID3---|----------| <br />
+|---ID4---|----------| <br />
 |---ID5---|message3| <br />
 
 Then <br />
