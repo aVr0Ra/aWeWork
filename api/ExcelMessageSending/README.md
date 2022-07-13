@@ -37,7 +37,7 @@
 4. The department id of students can be changed in processFile.php
 5. Student ID number are returned in the variable "extattr", and the name can be changed in processFile.php
 
-#The requirements of the Excel chart
+# The requirements of the Excel chart
 1. The program will only read data from columns A and B. Data from column A are students' ID numbers and column B are the messages supposed to be sent.
 2. Rules are as follows:
 1) If cell Bx is not NULL, then student ID Ax will receive a message Bx.
