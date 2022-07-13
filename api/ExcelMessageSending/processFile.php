@@ -1,16 +1,22 @@
 <?php
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 
 
 /**************************getting username->number******************************/
-include_once("../../src/CorpAPI.class.php");
-include_once("../../src/ServiceCorpAPI.class.php");
-include_once("../../src/ServiceProviderAPI.class.php");
+require 'vendor/autoload.php';
+require 'Messager.php';
+include_once("../src/CorpAPI.class.php");
+include_once("../src/ServiceCorpAPI.class.php");
+include_once("../src/ServiceProviderAPI.class.php");
 
-$config = require('../config.php');
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$config = require('config.php');
 $agentId = $config['APP_ID'];
 $api = new CorpAPI($config['CORP_ID'], $config['APP_SECRET']);
 
@@ -59,10 +65,6 @@ echo "Congratulations! Chart " . $path_filename_ext . " succcessfully saved in s
 
 
 /**************************processing excel chart******************************/
-require 'vendor/autoload.php';
-require 'Messager.php';
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 $inputFileName = $path_filename_ext;
 $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
@@ -70,22 +72,47 @@ $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
 $prefixNumber = 'A';
 $prefixMessage = 'B';
 
-$lastMessage = null;
+$FLAG = true;
+$TOTAL = 0;
+
+$messageB1 = $spreadsheet->getActiveSheet()->getCell('B1')->getValue();
+if ($messageB1 == null) {
+	echo "Seems like in Cell B1, the first student don't have a message to send. Please Double check it. Program Aborted. <br />";
+	exit;
+}
 
 for ($i = 1 ; ; $i ++) {
+	$nowNumberLoc = $prefixNumber . $i;
+	$number = $spreadsheet->getActiveSheet()->getCell($nowNumberLoc)->getValue();
+	
+	if ($number == null) {
+		$TOTAL = $i - 1;
+		break;
+	}
+	
+	if ($arrayNumber2Userid[$number] == null) {
+		echo "[Warning] At cell A" . $i . ", the program didn't find anyone with that student ID. Please double check it and resubmit later.<br />"; 
+		$FLAG = false;
+		continue;
+	}
+}
+
+if ($FLAG == false) {
+	echo "<br /> <br /> Something wrong with that chart. No message was sent. Program Aborted.<br />";
+	exit;
+}
+else {
+	echo "Double checking completed. Nothing wrong with the chart. Message sending.... <br />";
+}
+
+$lastMessage = null;
+
+for ($i = 1 ; $i <= $TOTAL; $i ++) {
 	$nowNumberLoc = $prefixNumber . $i;
 	$nowMessageLoc = $prefixMessage . $i;
 	$number = $spreadsheet->getActiveSheet()->getCell($nowNumberLoc)->getValue();
 	$message = $spreadsheet->getActiveSheet()->getCell($nowMessageLoc)->getValue();
 	
-	if ($number == null) {
-		break;
-	}
-	
-	if ($arrayNumber2Userid[$number] == null) {
-		echo "<br /> <br />[Warning] At cell A" . $i . ", the program didn't find any student with that student ID number. The message of this student didn't send correctly. <br /> <br />"; 
-		continue;
-	}
 	
 	if ($message == null) {
 		$message = $lastMessage;
@@ -99,8 +126,6 @@ for ($i = 1 ; ; $i ++) {
 	$now->sendMessage();
 	echo "Userid = " . $arrayNumber2Userid[$number] . "; message = " . $message . "; sent successfully!<br />";
 }
-
-
 
 
 ?>

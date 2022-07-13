@@ -10,11 +10,11 @@ class myMessage {
 	}
 	
 	public function sendMessage() {
-		include_once("../../src/CorpAPI.class.php");
-		include_once("../../src/ServiceCorpAPI.class.php");
-		include_once("../../src/ServiceProviderAPI.class.php");
+		include_once("../src/CorpAPI.class.php");
+		include_once("../src/ServiceCorpAPI.class.php");
+		include_once("../src/ServiceProviderAPI.class.php");
 	
-		$config = require('../config.php');
+		$config = require('config.php');
 		$agentId = $config['APP_ID'];
 		$api = new CorpAPI($config['CORP_ID'], $config['APP_SECRET']);
 		

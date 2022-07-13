@@ -20,5 +20,5 @@ return array (
 
     // 某个自建应用的id及secret, 在管理端 -> 企业应用 -> 自建应用, 点进相应应用可以看到
     "APP_ID"                => 1000003,
-    "APP_SECRET"            => "",
+    "APP_SECRET"            => "yD4kmh3HJGSFNF8R9SMXPPlKrLgFgDqfLtXGDMhSjmI",
 );
