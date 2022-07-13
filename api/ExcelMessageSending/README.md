@@ -24,13 +24,13 @@ ii. 如果没有一一对应，也接受多人发同一条消息，格式如下�
 
 # 报错
 以下的两种情况将会报错
-1. 所有excel表格A列中的人任意一个同学的学号为空或者未搜索到这个学号的同学（学号错误），程序将报错并指示出表格中所有没有找到对应成员的学号具体位置并报错。
+1. 所有excel表格A列中的人任意一个同学的学号未被搜索到（学号错误），程序将报错并指示出表格中所有没有找到对应成员的学号具体位置并报错。
 2. 第一位同学发送的消息为空
 
 # Instuction
 
 1. Please fill in your corp_id, app_id and app secret into config.php. 
-[At the same time] Please give write and read administration to folder upload. For instance, sudo chmod -R 777 upload
+[At the same time] Please give write and read administration to folder upload/ . For instance, sudo chmod -R 777 upload
 2. Open page localhost/wework/api/ExcelMessageSending/fileUpload.php where you can upload your Excel chart. .xls, .xlsx and .csv are the supported extension format.
 3. Excel chart uploaded by user will be stored in the upload/ folder, which you can read/write them at any time.
 4. The department id of students can be changed in processFile.php
@@ -56,8 +56,8 @@ student ID5 will receive message3. <br />
 
 # Warnings
 In these 2 conditions, the program will echo warnings.
-1. There is at least one student ID in column A is invalid or null. The program will echo a warning and show the locations of all the invalid student IDs.
-2. The message in cell B1 is NULL
+1. There are at least one student ID in column A is invalid. The program will echo a warning and reveal the locations of all the invalid student ID cells.
+2. The message in cell B1 is NULL.
 
 
 By aVr0Ra, all right reserved. <br />
