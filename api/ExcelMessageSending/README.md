@@ -13,35 +13,12 @@
   1) 如果一一对应，即每一个人后面都有一条消息，则程序将一一发送各自的消息
   2) 如果没有一一对应，也接受多人发同一条消息，格式如下：
 
-<tr> 
-<td>A</td>
-<td>B</td>
-</tr>
-
-<tr> 
-<td>学号1</td>
-<td>消息1</td>
-</tr>
-
-<tr> 
-<td>学号2</td>
-<td>消息2</td>
-</tr>
-
-<tr> 
-<td>学号3</td>
-<td>NULL</td>
-</tr>
-
-<tr> 
-<td>学号4</td>
-<td>NULL</td>
-</tr>
-
-<tr> 
-<td>学号5</td>
-<td>消息3</td>
-</tr>
+|----A----|----B---| <br />
+|---ID1---|message1| <br />
+|---ID2---|message2| <br />
+|---ID3---|--------| <br />
+|---ID4---|--------| <br />
+|---ID5---|message3| <br />
 
 
 则学号1的同学将收到消息1，学号2、3、4的同学将收到消息2，学号5的同学将收到消息3。以此类推。如果学号后无消息，则默认取用向上搜索到的最近的一条消息进行发送。
@@ -66,12 +43,12 @@
 ### 1) If cell Bx is not NULL, then student ID Ax will receive a message Bx.
 ### 2) If cell Bx is NULL, the format will be like this tiny chart:
 
-|:------:|:-----------:|
-|ID1|message1|
-|ID2|message2|
-|ID3| |
-|ID4| |
-|ID5|message3|
+|----A----|----B---| <br />
+|---ID1---|message1| <br />
+|---ID2---|message2| <br />
+|---ID3---|--------| <br />
+|---ID4---|--------| <br />
+|---ID5---|message3| <br />
 
 Then <br />
 student ID1 will receive message1,  <br />
